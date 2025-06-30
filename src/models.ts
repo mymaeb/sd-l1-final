@@ -16,7 +16,7 @@ type SearchOptions = { title?: string; tag?: string };
 
 class PelisCollection {
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json").then((peliculas) => {
+    return jsonfile.readFile("./src/pelis.json").then((peliculas) => {
       return peliculas;
     });
   }
@@ -31,7 +31,7 @@ class PelisCollection {
           peliculas.push(peli);
 
           // Escribís el array actualizado en el archivo
-          return jsonfile.writeFile("./pelis.json", peliculas).then(() => {
+          return jsonfile.writeFile("./src/pelis.json", peliculas).then(() => {
             return true; // Se agregó correctamente
           });
         });
@@ -40,7 +40,7 @@ class PelisCollection {
   }
 
   getAllSync(): Peli[] {
-    const peliculas = jsonfile.readFileSync("./pelis.json"); // Lee el archivo de forma síncrona
+    const peliculas = jsonfile.readFileSync("./src/pelis.json"); // Lee el archivo de forma síncrona
     return peliculas; // Devuelve el array de películas
   }
 

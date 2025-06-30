@@ -42,7 +42,7 @@ class PelisController {
     const pelisActuales = await this.model.getAll();
     pelisActuales.push(peli);
 
-    await jsonfile.writeFile("./pelis.json", pelisActuales);
+    await jsonfile.writeFile("./src/pelis.json", pelisActuales);
     return true;
   }
 }
